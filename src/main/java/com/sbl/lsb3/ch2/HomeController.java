@@ -1,6 +1,7 @@
 package com.sbl.lsb3.ch2;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
@@ -15,7 +16,8 @@ public class HomeController {
             new Video("SECRETS to fix BROKEN CODE!")
     );
     @GetMapping("/")
-    public String index() {
+    public String index(Model model) {
+        model.addAttribute("videos", videos);
         return "index";
     }
 }
